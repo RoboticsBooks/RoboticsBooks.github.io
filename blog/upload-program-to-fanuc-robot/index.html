@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Load a Program onto a New FANUC Robot: Files and Manual Settings | Indus Programming</title>
+<meta name="description" content="The files to load in Controlled Start (DIOCFGSV.IO, NUMREG.VR, POSREG.VR, SYSFRAME.SV...), the files you must never load, and the settings to enter by hand.">
+<link rel="canonical" href="https://roboticsbooks.github.io/blog/upload-program-to-fanuc-robot/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Indus Programming">
+<meta property="og:title" content="How to Load a Program onto a New FANUC Robot: Files and Manual Settings">
+<meta property="og:description" content="The files to load in Controlled Start (DIOCFGSV.IO, NUMREG.VR, POSREG.VR, SYSFRAME.SV...), the files you must never load, and the settings to enter by hand.">
+<meta property="og:url" content="https://roboticsbooks.github.io/blog/upload-program-to-fanuc-robot/">
+<meta property="og:image" content="https://roboticsbooks.github.io/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How to Load a Program onto a New FANUC Robot: Files and Manual Settings", "description": "The files to load in Controlled Start (DIOCFGSV.IO, NUMREG.VR, POSREG.VR, SYSFRAME.SV...), the files you must never load, and the settings to enter by hand.", "author": {"@type": "Person", "name": "Guillaume Olivier", "url": "https://roboticsbooks.github.io/about/"}, "datePublished": "2023-09-01", "dateModified": "2026-11-20", "image": "https://roboticsbooks.github.io/assets/og-default.png", "mainEntityOfPage": "https://roboticsbooks.github.io/blog/upload-program-to-fanuc-robot/", "publisher": {"@type": "Organization", "name": "Indus Programming", "logo": {"@type": "ImageObject", "url": "https://roboticsbooks.github.io/assets/logo-square.png"}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://roboticsbooks.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Tutorials", "item": "https://roboticsbooks.github.io/blog/"}, {"@type": "ListItem", "position": 3, "name": "How to Load a Program onto a New FANUC Robot: Files and Manual Settings", "item": "https://roboticsbooks.github.io/blog/upload-program-to-fanuc-robot/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" width="34" height="34" alt=""><span><b>Indus</b> Programming</span></a>
+    <nav class="nav" aria-label="Main"><a href="/books/">Books</a><a href="/blog/" aria-current="page">Tutorials</a><a href="/tools/">Tools</a><a href="/about/">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="page-head"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Tutorials</a> / How to Load a Program onto a New FANUC Robot: Files and Manual Settings</nav><h1>How to Load a Program onto a New FANUC Robot: Files and Manual Settings</h1><p>The files to load in Controlled Start (DIOCFGSV.IO, NUMREG.VR, POSREG.VR, SYSFRAME.SV...), the files you must never load, and the settings to enter by hand.</p></div></div>
+<div class="wrap article-layout" style="padding-left:20px;padding-right:20px">
+<article class="prose"><nav class="toc" aria-label="Contents"><p>In this article</p><ol><li><a href="#use-virtual-robot-backup-to-restore-real-robot-in-one-click">Use Virtual Robot Backup to Restore Real Robot in One Click?</a></li><li><a href="#how-to-upload-a-program-to-a-brand-new-robot">How to Upload a Program to a Brand-new Robot?</a></li><li><a href="#create-a-backup-of-the-real-robot">Create a backup of the real robot</a></li><li><a href="#create-a-backup-of-the-virtual-robot">Create a backup of the virtual robot</a></li><li><a href="#load-the-files">Load the files</a></li><li><a href="#items-that-require-manual-input">Items that require manual input</a></li><li><a href="#backup">Backup</a></li></ol></nav><p>After spending weeks preparing your program, the moment has come to load it onto the newly installed robot.</p>
+<p>However, don't be fooled into thinking it's as simple as a single click.</p>
+<p>The procedure can vary depending on the robot's brand. In this guide, I'll walk you through the process for FANUC robots and highlight important considerations to avoid any mistakes.</p>
+
+<h2 id="use-virtual-robot-backup-to-restore-real-robot-in-one-click">Use Virtual Robot Backup to Restore Real Robot in One Click?</h2>
+<p>At first glance, you might think: "Okay, I'll do a full restore to load the entire program in one click."</p>
+<p>But be cautious: For sure, it won't work with FANUC robot. There are significant risks that I would prefer not to take.</p>
+<ul>
+<li><p>You may encounter incompatibilities if the robot version or installed options on the virtual robot prepared at the office are different from the real robot.</p></li>
+<li><p>Overwriting the robot's serial number could lead to complications.</p></li>
+<li><p>Worst of all, the axes calibration values may be lost.</p></li>
+</ul>
+<p>In short, regardless of the robot brand, I advise against restoring the robot with a program you prepared at the office, except if you prepared your program from a backup of the real robot. But that's rarely the case, the robot is installed and powered up after you have finished all the programming work at the office.</p>
+
+<h2 id="how-to-upload-a-program-to-a-brand-new-robot">How to Upload a Program to a Brand-new Robot?</h2>
+<p>Here is the procedure I use.</p>
+
+<h2 id="create-a-backup-of-the-real-robot">Create a backup of the real robot</h2>
+<p>Before loading any program, take a backup of the real robot. This will preserve its initial state when first started up. Save this backup on your company's network.</p>
+<p>Perform a backup by selecting "All Of Above" to be sure to save everything.</p>
+
+<h2 id="create-a-backup-of-the-virtual-robot">Create a backup of the virtual robot</h2>
+<p>Create a backup of the virtual robot that you have worked on. This backup will help you to load the system and program files.</p>
+<p>Place the backup folder onto a USB key, and then insert the USB key into the controller or teach pendant.</p>
+
+<h2 id="load-the-files">Load the files</h2>
+<p>It is recommended to load system and program files when the controller is in CONTROLLED START mode.</p>
+<p>To put the controller in this mode, you have two options:</p>
+<ul>
+<li><p>Power on the controller while simultaneously pressing F1 and F5 on the teach pendant.</p></li>
+<li><p>Use the "Function" menu on the teach pendant (FCTN -&gt; CYCLE POWER -&gt; OPTIONS -&gt; CTRL).</p></li>
+</ul>
+<p>The process of loading a program is not simplified by FANUC. It involves the loading of individual files for I/O, frames, numerical registers, position registers, and more. Even after loading all these files, manual editing will still be necessary.</p>
+<p>Here's the step-by-step procedure for loading a file:</p>
+<ul>
+<li><p>Click on "Menu".</p></li>
+<li><p>Select "5-File".</p></li>
+</ul>
+<figure><img alt="Controlled start" decoding="async" height="318" loading="lazy" src="/blog/upload-program-to-fanuc-robot/img-1.webp" width="409"/></figure>
+<ul>
+<li><p>Navigate to the folder containing the virtual robot backup.</p></li>
+<li><p>Choose the desired file, and press F3 for "Load".</p></li>
+</ul>
+<figure><img alt="Load file teach pendant" decoding="async" height="316" loading="lazy" src="/blog/upload-program-to-fanuc-robot/img-2.webp" width="412"/></figure>
+
+<p>Let's now begin listing the files that need to be loaded:</p>
+<ul>
+<li><p>DIOCFGSV.IO: Inputs &amp; outputs information setup</p></li>
+<li><p>NUMREG.VR: Data register information</p></li>
+<li><p>POSREG.VR: Position register information</p></li>
+<li><p>FRAMEVAR.VR: Frame setup information</p></li>
+<li><p>SYSFRAME.SV: Tool frames and user frames</p></li>
+<li><p>SYSMACRO.SV: Macros</p></li>
+<li><p>DCSPOS.SV: Position &amp; speed check function (if you use the DCS option)</p></li>
+<li><p>DCSIOC.SV: Safe I/O Connect function and user comments of the Safe I/O signals (if you use the DCS option)</p></li>
+<li><p>*.TP: Load all TP files</p></li>
+</ul>
+
+<p>You may come across information online suggesting you could load SYSVAR.SV for various system parameters such as user alarms or space functions. However, following this advice would be a mistake, as this file also contains mastering, servo parameters, and other critical settings that you wouldn't want to erase.</p>
+<p>You can now restart the controller in normal mode (COLD START).</p>
+
+<h2 id="items-that-require-manual-input">Items that require manual input</h2>
+<p>As previously mentioned, certain elements cannot be loaded through files and necessitate manual entry. Below is a comprehensive list of items that must be entered manually. You can open Roboguide and compare the real and virtual robot to not forget anything.</p>
+<p>I suggest you to go through each item in SETUP and SYSTEM menu and check if you need to enter something.</p>
+<p>Undoubtedly, the following items demand manual input:</p>
+<p>SETUP menu:</p>
+<ul>
+<li><p>Prog Select</p></li>
+<li><p>Reference positions</p></li>
+<li><p>User alarms</p></li>
+<li><p>Background logic</p></li>
+<li><p>Space functions</p></li>
+<li><p>Host comm</p></li>
+</ul>
+
+<p>SYSTEM menu:</p>
+<ul>
+<li><p>System variables: disable T2 mode for example</p></li>
+<li><p>Config</p></li>
+<li><p>Motion: Payload definition</p></li>
+</ul>
+
+<h2 id="backup">Backup</h2>
+<p>Lastly, create a backup of the program for easy restoration if needed in the future.</p>
+<p>By following these steps, you can confidently upload your program to the brand-new robot without risking potential problems.</p>
+<div class="cta-band"><div><h2>Learn the full method in FANUC Robot Programming</h2>
+<p>Write reliable FANUC TP programs, built and tested step by step in Roboguide. Free bonus: the complete robot and Roboguide cell backup, plus the Excel I/O mapping file.</p></div>
+<a class="btn btn-primary" href="/books/fanuc-robot-programming/">See the book</a></div></article>
+<aside><div class="aside-card"><a class="cover cover-real " href="/books/fanuc-robot-programming/"><img src="/assets/covers/fanuc.webp" width="600" height="776" alt="FANUC Robot Programming book cover by Guillaume Olivier" loading="lazy"></a><h3>FANUC Robot Programming</h3>
+<p>Write reliable FANUC TP programs, built and tested step by step in Roboguide.</p>
+<a class="btn btn-primary" href="https://www.amazon.com/dp/B0FKZYSZHL" rel="noopener">View on Amazon</a>
+<p style="margin-top:12px"><a href="/books/fanuc-robot-programming/">What's inside the book</a></p></div></aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h2>Indus Programming</h2>
+      <p>Practical guides to industrial robot programming by Guillaume Olivier, automation engineer.</p>
+      <p><a href="mailto:indusprogramming@gmail.com">indusprogramming@gmail.com</a></p>
+    </div>
+    <div>
+      <h2>Books</h2>
+      <ul>
+        <li><a href="/books/fanuc-robot-programming/">FANUC Robot Programming</a></li>
+        <li><a href="/books/abb-robot-programming/">ABB Robot Programming</a></li>
+        <li><a href="/bonus/">Get your book bonus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>FANUC</h2>
+      <ul>
+        <li><a href="/blog/fanuc-macro-programming/">Macro programming</a></li>
+        <li><a href="/blog/upload-program-to-fanuc-robot/">Load a program on a new robot</a></li>
+        <li><a href="/blog/fanuc-alarm-codes-troubleshooting/">Alarm codes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>ABB</h2>
+      <ul>
+        <li><a href="/blog/abb-robotstudio-getting-started/">RobotStudio getting started</a></li>
+        <li><a href="/blog/abb-robot-commissioning-checklist/">Commissioning checklist</a></li>
+        <li><a href="/blog/abb-io-list-excel-macro/">I/O list Excel template</a></li>
+      </ul>
+    </div>
+    <p class="small">© 2026 Guillaume Olivier. FANUC, ABB, Roboguide and RobotStudio are trademarks of their respective owners. This site is independent and not affiliated with them.</p>
+  </div>
+</footer>
+</body>
+</html>

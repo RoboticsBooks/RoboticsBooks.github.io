@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FANUC Robot Programming – Book by Guillaume Olivier | Indus Programming</title>
+<meta name="description" content="FANUC Robot Programming by Guillaume Olivier: TP programming, registers, frames, PLC handshakes, missions, Space Check and Background Logic, all built in Roboguide.">
+<link rel="canonical" href="https://roboticsbooks.github.io/books/fanuc-robot-programming/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Indus Programming">
+<meta property="og:title" content="FANUC Robot Programming – Book by Guillaume Olivier">
+<meta property="og:description" content="FANUC Robot Programming by Guillaume Olivier: TP programming, registers, frames, PLC handshakes, missions, Space Check and Background Logic, all built in Roboguide.">
+<meta property="og:url" content="https://roboticsbooks.github.io/books/fanuc-robot-programming/">
+<meta property="og:image" content="https://roboticsbooks.github.io/assets/og-fanuc.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "FANUC Robot Programming: Tips, Advanced Techniques, Step-by-Step Tutorials, Real-world Examples", "author": {"@type": "Person", "name": "Guillaume Olivier", "url": "https://roboticsbooks.github.io/about/"}, "inLanguage": "en", "description": "FANUC Robot Programming by Guillaume Olivier: TP programming, registers, frames, PLC handshakes, missions, Space Check and Background Logic, all built in Roboguide.", "url": "https://roboticsbooks.github.io/books/fanuc-robot-programming/", "image": "https://roboticsbooks.github.io/assets/covers/fanuc.jpg", "workExample": [{"@type": "Book", "bookFormat": "https://schema.org/Paperback", "url": "https://www.amazon.com/dp/B0FKZYSZHL"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://roboticsbooks.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Books", "item": "https://roboticsbooks.github.io/books/"}, {"@type": "ListItem", "position": 3, "name": "FANUC Robot Programming", "item": "https://roboticsbooks.github.io/books/fanuc-robot-programming/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" width="34" height="34" alt=""><span><b>Indus</b> Programming</span></a>
+    <nav class="nav" aria-label="Main"><a href="/books/" aria-current="page">Books</a><a href="/blog/">Tutorials</a><a href="/tools/">Tools</a><a href="/about/">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<section class="book-hero"><div class="wrap">
+<div><a class="cover cover-real " href="/books/fanuc-robot-programming/"><img src="/assets/covers/fanuc.webp" width="600" height="776" alt="FANUC Robot Programming book cover by Guillaume Olivier" loading="lazy"></a></div>
+<div><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/books/">Books</a> / FANUC Robot Programming</nav><h1>FANUC Robot Programming: field-tested TP methods, built in Roboguide</h1>
+<p class="meta">By Guillaume Olivier. Available in paperback and Kindle.</p>
+<p style="font-size:1.12rem">Write FANUC robot programs that run reliably on the shop floor. Every example is built and tested in Roboguide, so you can follow along on your PC without a real robot, from an empty workcell to a complete production-ready program.</p>
+<div class="btn-row"><a class="btn btn-primary" href="https://www.amazon.com/dp/B0FKZYSZHL" rel="noopener">Buy on Amazon</a><a class="btn" href="#inside">Look inside</a></div>
+<p class="stores">Other Amazon stores: <a href="https://www.amazon.com/dp/B0FKZYSZHL" rel="noopener">Amazon.com</a> <a href="https://www.amazon.co.uk/dp/B0FKZYSZHL" rel="noopener">UK</a> <a href="https://www.amazon.de/dp/B0FKZYSZHL" rel="noopener">Germany</a> <a href="https://www.amazon.fr/dp/B0FKZYSZHL" rel="noopener">France</a> <a href="https://www.amazon.ca/dp/B0FKZYSZHL" rel="noopener">Canada</a> <a href="https://www.amazon.in/dp/B0FKZYSZHL" rel="noopener">India</a></p>
+</div></div></section>
+<section class="section"><div class="wrap cols-2">
+<div><h2>What you will be able to do</h2><ul class="checklist"><li>Build a complete robot cell in Roboguide and write your first TP programs</li><li>Use registers, position registers and frames instead of hard-coded points</li><li>Define tools and payloads correctly and choose between joint and linear motion</li><li>Handle I/O and design clean handshakes with the PLC</li><li>Structure a real main program with missions, as used on production lines</li><li>Add Space Check, reference positions and automatic return to home</li><li>Run Background Logic tasks and manage messages and alarms</li></ul></div>
+<div><h2>Who this book is for</h2><p>Robot technicians, automation engineers, integrators and students who know the basics of a teach pendant and want to write cleaner, more robust FANUC programs.</p>
+<h2 style="margin-top:1.4em">Why this book is different</h2><p>Written by an automation engineer with years of field experience in industrial robot cells. No theory for its own sake: only methods proven during commissioning, and complete examples you can reproduce in Roboguide.</p>
+<div class="note"><h3>Free bonus</h3><p style="margin:0">Readers get the complete robot and Roboguide cell backup, plus the Excel I/O mapping file. <a href="/bonus/">How to get your bonus</a></p></div></div>
+</div></section>
+<section class="section" id="inside"><div class="wrap"><div class="section-head"><h2>Look inside</h2><p>Real screenshots and code from the book.</p></div>
+<div class="inside"><figure><img src="/assets/inside/fanuc-cell.webp" width="600" height="600" alt="Build your cell – An LR Mate 200iD workcell created step by step in Roboguide" loading="lazy"><figcaption><b>Build your cell</b>An LR Mate 200iD workcell created step by step in Roboguide</figcaption></figure><figure><img src="/assets/inside/fanuc-code.webp" width="600" height="600" alt="Real TP code – Commented programs such as GRIP_PART_TABLE, CYCLE and AUTOHOME" loading="lazy"><figcaption><b>Real TP code</b>Commented programs such as GRIP_PART_TABLE, CYCLE and AUTOHOME</figcaption></figure><figure><img src="/assets/inside/fanuc-frames.webp" width="600" height="600" alt="Frames done right – Tool and user frames taught with the three-point method" loading="lazy"><figcaption><b>Frames done right</b>Tool and user frames taught with the three-point method</figcaption></figure><figure><img src="/assets/inside/fanuc-spacecheck.webp" width="600" height="600" alt="Safe interference zones – Space Check with PLC interlocks, tested in simulation" loading="lazy"><figcaption><b>Safe interference zones</b>Space Check with PLC interlocks, tested in simulation</figcaption></figure></div>
+<figure class="wide-figure" style="margin:24px 0 0"><img src="/assets/inside/fanuc-handshake.webp" width="1940" height="1200" alt="FANUC robot PLC handshake sequence: mission number, acknowledge, part gripped signals" loading="lazy"></figure>
+</div></section>
+<section class="section"><div class="wrap cols-2">
+<div><h2>Table of contents</h2><ol class="chapters"><li>Introduction</li><li>Roboguide</li><li>Programming language</li><li>Creating the workcell</li><li>My 1st program</li><li>Motion program</li><li>Program data – Registers</li><li>Teaching robot positions</li><li>Inputs and outputs</li><li>Programs</li><li>Frames</li><li>Relative motion</li><li>Joint and linear motions</li><li>Tool and payload definition</li><li>Messages and alarms</li><li>Reference position</li><li>Space check function</li><li>Automatic return to the home position</li><li>Handshakes</li><li>Main program</li><li>Missions</li><li>Background Logic</li><li>Conclusion</li></ol></div>
+<div><h2>Free tutorials on the same topic</h2><ul class="post-list"><li><a href="/blog/fanuc-macro-programming/"><span class="tag tag-fanuc">FANUC</span><span><h3>FANUC Macro Programming: User Keys, Manual Functions and DI Triggers</h3><p>Create FANUC macros to open and close a gripper, then trigger them from teach pendant user keys, manual functions or PLC digital inputs. Examples included.</p></span></a></li><li><a href="/blog/upload-program-to-fanuc-robot/"><span class="tag tag-fanuc">FANUC</span><span><h3>How to Load a Program onto a New FANUC Robot: Files and Manual Settings</h3><p>The files to load in Controlled Start (DIOCFGSV.IO, NUMREG.VR, POSREG.VR, SYSFRAME.SV...), the files you must never load, and the settings to enter by hand.</p></span></a></li><li><a href="/blog/fanuc-alarm-codes-troubleshooting/"><span class="tag tag-fanuc">FANUC</span><span><h3>FANUC Alarm Codes: How to Find and Troubleshoot Them Fast</h3><p>Display active and past FANUC alarms on the teach pendant, find the alarm code in the official manuals, and use a web tool to get alarm details quickly.</p></span></a></li></ul></div>
+</div></section>
+<section class="section"><div class="wrap"><div class="cta-band" style="margin:0"><div><h2>FANUC Robot Programming</h2><p>Tips, Advanced Techniques, Step-by-Step Tutorials, Real-world Examples</p></div><a class="btn btn-primary" href="https://www.amazon.com/dp/B0FKZYSZHL" rel="noopener">Buy on Amazon</a></div></div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h2>Indus Programming</h2>
+      <p>Practical guides to industrial robot programming by Guillaume Olivier, automation engineer.</p>
+      <p><a href="mailto:indusprogramming@gmail.com">indusprogramming@gmail.com</a></p>
+    </div>
+    <div>
+      <h2>Books</h2>
+      <ul>
+        <li><a href="/books/fanuc-robot-programming/">FANUC Robot Programming</a></li>
+        <li><a href="/books/abb-robot-programming/">ABB Robot Programming</a></li>
+        <li><a href="/bonus/">Get your book bonus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>FANUC</h2>
+      <ul>
+        <li><a href="/blog/fanuc-macro-programming/">Macro programming</a></li>
+        <li><a href="/blog/upload-program-to-fanuc-robot/">Load a program on a new robot</a></li>
+        <li><a href="/blog/fanuc-alarm-codes-troubleshooting/">Alarm codes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>ABB</h2>
+      <ul>
+        <li><a href="/blog/abb-robotstudio-getting-started/">RobotStudio getting started</a></li>
+        <li><a href="/blog/abb-robot-commissioning-checklist/">Commissioning checklist</a></li>
+        <li><a href="/blog/abb-io-list-excel-macro/">I/O list Excel template</a></li>
+      </ul>
+    </div>
+    <p class="small">© 2026 Guillaume Olivier. FANUC, ABB, Roboguide and RobotStudio are trademarks of their respective owners. This site is independent and not affiliated with them.</p>
+  </div>
+</footer>
+</body>
+</html>

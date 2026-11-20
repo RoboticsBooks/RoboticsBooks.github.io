@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FANUC I/O list from a connected robot (Python) | Indus Programming</title>
+<meta name="description" content="Free Python script that connects to a FANUC robot or Roboguide and automatically creates an Excel inputs/outputs list (DI, DO, GI, GO, UI, UO, RI, RO).">
+<link rel="canonical" href="https://roboticsbooks.github.io/tools/fanuc-io-list-python-script/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Indus Programming">
+<meta property="og:title" content="FANUC I/O list from a connected robot (Python)">
+<meta property="og:description" content="Free Python script that connects to a FANUC robot or Roboguide and automatically creates an Excel inputs/outputs list (DI, DO, GI, GO, UI, UO, RI, RO).">
+<meta property="og:url" content="https://roboticsbooks.github.io/tools/fanuc-io-list-python-script/">
+<meta property="og:image" content="https://roboticsbooks.github.io/tools/fanuc-io-list-python-script/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "FANUC I/O list from a connected robot (Python)", "description": "Free Python script that connects to a FANUC robot or Roboguide and automatically creates an Excel inputs/outputs list (DI, DO, GI, GO, UI, UO, RI, RO).", "author": {"@type": "Person", "name": "Guillaume Olivier", "url": "https://roboticsbooks.github.io/about/"}, "url": "https://roboticsbooks.github.io/tools/fanuc-io-list-python-script/", "isAccessibleForFree": true}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://roboticsbooks.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://roboticsbooks.github.io/tools/"}, {"@type": "ListItem", "position": 3, "name": "FANUC I/O list from a connected robot (Python)", "item": "https://roboticsbooks.github.io/tools/fanuc-io-list-python-script/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" width="34" height="34" alt=""><span><b>Indus</b> Programming</span></a>
+    <nav class="nav" aria-label="Main"><a href="/books/">Books</a><a href="/blog/">Tutorials</a><a href="/tools/" aria-current="page">Tools</a><a href="/about/">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="page-head"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a> / FANUC I/O list from a connected robot (Python)</nav><h1>FANUC I/O list from a connected robot (Python)</h1><p>Python script that reads a real or Roboguide robot and fills an Excel I/O list.</p></div></div>
+<div class="wrap article-layout" style="padding-left:20px;padding-right:20px"><article class="prose"><p>This Python script creates an inputs/outputs Excel list from a connected FANUC robot, real or virtual in Roboguide. It reads the robot's I/O status page over the network, so there is nothing to export by hand.</p>
+<div class="btn-row"><a class="btn btn-primary" href="/downloads/FANUC_IO_List_Python_Script.zip" download>Download the script (.zip)</a></div>
+<h2>How it works</h2><ol><li>Run the script with <code>Execute script.bat</code>.</li><li>Keep the default IP address 127.0.0.1 for a Roboguide robot, or enter the real robot's IP address.</li><li>The <code>IO_List.xlsx</code> file in the <code>To</code> folder is filled with all signals: DI, DO, GI, GO, UI, UO, RI and RO.</li></ol>
+<figure><img src="/tools/fanuc-io-list-python-script/img-1.webp" width="315" height="157" alt="FANUC I/O list Python script – screenshot 1" loading="lazy" decoding="async"></figure><figure><img src="/tools/fanuc-io-list-python-script/img-2.webp" width="719" height="201" alt="FANUC I/O list Python script – screenshot 2" loading="lazy" decoding="async"></figure><figure><img src="/tools/fanuc-io-list-python-script/img-3.webp" width="1000" height="295" alt="FANUC I/O list Python script – screenshot 3" loading="lazy" decoding="async"></figure>
+<h2>Requirements</h2><p>Tested with controller software V9.40 and Python 3.10. Install Python 3 (available from the Microsoft Store), then open a command prompt and install the packages:</p>
+<pre><code>python -m pip install requests beautifulsoup4 openpyxl</code></pre>
+<p>Do not delete <code>IO_List.xlsx</code> from the <code>To</code> folder: the script writes into it.</p>
+<p>Want to understand how the I/O are organized in a full program? See <a href="/books/fanuc-robot-programming/">FANUC Robot Programming</a>.</p></article><aside><div class="aside-card"><img src="/tools/fanuc-io-list-python-script/cover.webp" width="600" height="849" alt="FANUC I/O list from a connected robot (Python)" loading="lazy" decoding="async"><div style="margin-top:16px"><a class="btn btn-primary" href="/downloads/FANUC_IO_List_Python_Script.zip" download>Download free</a></div></div></aside></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h2>Indus Programming</h2>
+      <p>Practical guides to industrial robot programming by Guillaume Olivier, automation engineer.</p>
+      <p><a href="mailto:indusprogramming@gmail.com">indusprogramming@gmail.com</a></p>
+    </div>
+    <div>
+      <h2>Books</h2>
+      <ul>
+        <li><a href="/books/fanuc-robot-programming/">FANUC Robot Programming</a></li>
+        <li><a href="/books/abb-robot-programming/">ABB Robot Programming</a></li>
+        <li><a href="/bonus/">Get your book bonus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>FANUC</h2>
+      <ul>
+        <li><a href="/blog/fanuc-macro-programming/">Macro programming</a></li>
+        <li><a href="/blog/upload-program-to-fanuc-robot/">Load a program on a new robot</a></li>
+        <li><a href="/blog/fanuc-alarm-codes-troubleshooting/">Alarm codes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>ABB</h2>
+      <ul>
+        <li><a href="/blog/abb-robotstudio-getting-started/">RobotStudio getting started</a></li>
+        <li><a href="/blog/abb-robot-commissioning-checklist/">Commissioning checklist</a></li>
+        <li><a href="/blog/abb-io-list-excel-macro/">I/O list Excel template</a></li>
+      </ul>
+    </div>
+    <p class="small">© 2026 Guillaume Olivier. FANUC, ABB, Roboguide and RobotStudio are trademarks of their respective owners. This site is independent and not affiliated with them.</p>
+  </div>
+</footer>
+</body>
+</html>

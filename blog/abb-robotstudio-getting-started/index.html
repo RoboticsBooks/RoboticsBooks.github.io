@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ABB RobotStudio Tutorial: Getting Started with the Free Version | Indus Programming</title>
+<meta name="description" content="Install RobotStudio, add RobotWare, create a virtual controller, jog the robot with the virtual FlexPendant and edit RAPID code. A step-by-step guide.">
+<link rel="canonical" href="https://roboticsbooks.github.io/blog/abb-robotstudio-getting-started/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Indus Programming">
+<meta property="og:title" content="ABB RobotStudio Tutorial: Getting Started with the Free Version">
+<meta property="og:description" content="Install RobotStudio, add RobotWare, create a virtual controller, jog the robot with the virtual FlexPendant and edit RAPID code. A step-by-step guide.">
+<meta property="og:url" content="https://roboticsbooks.github.io/blog/abb-robotstudio-getting-started/">
+<meta property="og:image" content="https://roboticsbooks.github.io/blog/abb-robotstudio-getting-started/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ABB RobotStudio Tutorial: Getting Started with the Free Version", "description": "Install RobotStudio, add RobotWare, create a virtual controller, jog the robot with the virtual FlexPendant and edit RAPID code. A step-by-step guide.", "author": {"@type": "Person", "name": "Guillaume Olivier", "url": "https://roboticsbooks.github.io/about/"}, "datePublished": "2023-09-01", "dateModified": "2026-11-20", "image": "https://roboticsbooks.github.io/blog/abb-robotstudio-getting-started/cover.jpg", "mainEntityOfPage": "https://roboticsbooks.github.io/blog/abb-robotstudio-getting-started/", "publisher": {"@type": "Organization", "name": "Indus Programming", "logo": {"@type": "ImageObject", "url": "https://roboticsbooks.github.io/assets/logo-square.png"}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://roboticsbooks.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Tutorials", "item": "https://roboticsbooks.github.io/blog/"}, {"@type": "ListItem", "position": 3, "name": "ABB RobotStudio Tutorial: Getting Started with the Free Version", "item": "https://roboticsbooks.github.io/blog/abb-robotstudio-getting-started/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" width="34" height="34" alt=""><span><b>Indus</b> Programming</span></a>
+    <nav class="nav" aria-label="Main"><a href="/books/">Books</a><a href="/blog/" aria-current="page">Tutorials</a><a href="/tools/">Tools</a><a href="/about/">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="page-head"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Tutorials</a> / ABB RobotStudio Tutorial: Getting Started with the Free Version</nav><h1>ABB RobotStudio Tutorial: Getting Started with the Free Version</h1><p>Install RobotStudio, add RobotWare, create a virtual controller, jog the robot with the virtual FlexPendant and edit RAPID code. A step-by-step guide.</p></div></div>
+<div class="wrap article-layout" style="padding-left:20px;padding-right:20px">
+<article class="prose"><figure class="hero-img"><img src="/blog/abb-robotstudio-getting-started/cover.webp" width="1200" height="800" alt="ABB RobotStudio Tutorial: Getting Started with the Free Version" fetchpriority="high"></figure><nav class="toc" aria-label="Contents"><p>In this article</p><ol><li><a href="#downloading-robotstudio">Downloading RobotStudio</a></li><li><a href="#installing-robotstudio">Installing RobotStudio</a></li><li><a href="#adding-robotware">Adding RobotWare</a></li><li><a href="#creating-a-new-station">Creating a New Station</a></li><li><a href="#adding-a-new-controller">Adding a New Controller</a></li><li><a href="#creating-a-controller-from-a-backup">Creating a Controller from a Backup</a></li><li><a href="#exploring-the-interface-and-development-environment">Exploring the Interface and Development Environment</a></li><li><a href="#controlling-the-robot-with-the-virtual-flexpendant">Controlling the Robot with the Virtual FlexPendant</a></li><li><a href="#editing-rapid-code">Editing RAPID Code</a></li><li><a href="#creating-program-backups">Creating Program Backups</a></li></ol></nav><p>RobotStudio is a powerful software designed by ABB for simulating and programming robots. With this software, you can create, test, and fine-tune robotic applications before deploying them onto real robots. In this article, we will walk you through the initial steps to begin using RobotStudio.</p>
+
+<h2 id="downloading-robotstudio">Downloading RobotStudio</h2>
+<p>To get started, the first step is to download RobotStudio. You can easily download the software from <a href="https://new.abb.com/products/robotics/software-and-digital/robotstudio" rel="noopener">ABB's official website</a>.</p>
+<p>The download process is straightforward, requiring you to provide some basic information.</p>
+<p>After the download, you will have access to a 30-day trial period during which you can explore all the features, including both free and paid ones. Once the trial ends, you will still have access to essential features like offline and online programming. The paid features primarily involve 3D design and simulation capabilities. However, for the purposes of this article, we will focus solely on the free features.</p>
+
+<h2 id="installing-robotstudio">Installing RobotStudio</h2>
+<p>Once the download is complete, run the installer and follow the on-screen instructions to install RobotStudio on your computer. The installation process is user-friendly and should not pose any difficulties.</p>
+
+<h2 id="adding-robotware">Adding RobotWare</h2>
+<p>When you launch the software for the first time, you may encounter a prompt indicating that no RobotWare is installed. RobotWare serves as the operating system for ABB robots. Click "Yes" to proceed.</p>
+<figure><img alt="Adding RobotWare – ABB screenshot" decoding="async" height="251" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-1.webp" width="568"/></figure>
+
+<p>For this tutorial, we select "RobotWare for IRC5". Then click "Add" to install it.</p>
+<figure><img alt="Adding RobotWare – ABB screenshot" decoding="async" height="522" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-2.webp" width="1100"/></figure>
+
+<h2 id="creating-a-new-station">Creating a New Station</h2>
+<p>The initial step in working with RobotStudio is to create a new station. Simply navigate to the "File" tab, click on "New," then select "Station," and finally click "Create."</p>
+<figure><img alt="Creating a New Station – ABB screenshot" decoding="async" height="672" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-3.webp" width="1088"/></figure>
+
+<h2 id="adding-a-new-controller">Adding a New Controller</h2>
+<p>Once you have your station set up, the next step is to add a controller. Head over to the "Home" tab, click on "Virtual Controller," and then select "New Controller."</p>
+<figure><img alt="Adding a New Controller – ABB screenshot" decoding="async" height="371" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-4.webp" width="584"/></figure>
+<p>This window appears. We select the robot model.</p>
+<figure><img alt="Adding a New Controller – ABB screenshot" decoding="async" height="631" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-5.webp" width="504"/></figure>
+<p>You have the option to customize the controller settings according to your requirements.</p>
+<figure><img alt="Adding a New Controller – ABB screenshot" decoding="async" height="631" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-6.webp" width="504"/></figure>
+<p>If desired, you can add various features such as "World Zones," which allows you to define specific zones within the robot's environment.</p>
+<figure><img alt="Adding a New Controller – ABB screenshot" decoding="async" height="619" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-7.webp" width="1100"/></figure>
+
+<h2 id="creating-a-controller-from-a-backup">Creating a Controller from a Backup</h2>
+<p>If you have a backup of a robot, you can use it to create a new controller. Backups can come in either folder or .tar archive formats. If you possess the archive from the <a href="/books/abb-robot-programming/">"ABB Robots Programming"</a> eBook, it is in .tar format.</p>
+<p>Simply select the archive, choose the robot's name, and the RobotWare version. The software will ensure that RobotWare is installed before proceeding.</p>
+<figure><img alt="Creating a Controller from a Backup – ABB screenshot" decoding="async" height="662" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-8.webp" width="756"/></figure>
+<p>Once the controller is created, the robot appears in the 3D view. In the free version, we can visualize the robot, but we cannot add 3D elements (cell, gripper, etc.).</p>
+
+<h2 id="exploring-the-interface-and-development-environment">Exploring the Interface and Development Environment</h2>
+<p>Now, I will present the two essential menus when using the free version of RobotStudio.</p>
+<p>In "Controller" tab, you will find a range of essential functionalities:</p>
+<ol type="1">
+<li><p>Managing write access requests when taking control with the RAPID development environment</p></li>
+<li><p>Restarting the controller</p></li>
+<li><p>Backing up and restoring programs</p></li>
+<li><p>Viewing events</p></li>
+<li><p>Launching the virtual FlexPendant</p></li>
+<li><p>Viewing Inputs/Outputs</p></li>
+<li><p>Accessing the controller configuration</p></li>
+<li><p>Modifying controller options</p></li>
+</ol>
+<figure><img alt="Exploring the Interface and Development Environment – ABB screenshot" decoding="async" height="274" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-9.webp" width="1100"/></figure>
+<p>In "RAPID" tab, you will find additional functionalities:</p>
+<ol type="1">
+<li><p>Managing write access requests when taking control with the RAPID development environment</p></li>
+<li><p>Automatically formatting code</p></li>
+<li><p>Applying program modifications</p></li>
+<li><p>Starting or stopping program execution</p></li>
+<li><p>Checking the program for errors</p></li>
+<li><p>Visualizing/modifying the program pointer's position</p></li>
+</ol>
+<figure><img alt="Exploring the Interface and Development Environment – ABB screenshot" decoding="async" height="287" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-10.webp" width="1100"/></figure>
+
+<h2 id="controlling-the-robot-with-the-virtual-flexpendant">Controlling the Robot with the Virtual FlexPendant</h2>
+<p>By launching the virtual FlexPendant, you can control the robot manually. The virtual FlexPendant offers the same functionalities as the real one. To initiate the FlexPendant, click on "FlexPendant".</p>
+<figure><img alt="Controlling the Robot with the Virtual FlexPendant – ABB screenshot" decoding="async" height="116" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-11.webp" width="475"/></figure>
+<p>Then access the menu by clicking on the icon at the top left.</p>
+<figure><img alt="Controlling the Robot with the Virtual FlexPendant – ABB screenshot" decoding="async" height="484" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-12.webp" width="864"/></figure>
+<p>From the menu, select "Jogging" to open the manual control screen. Before using the joystick for movements, you must power on the robot.</p>
+<figure><img alt="Controlling the Robot with the Virtual FlexPendant – ABB screenshot" decoding="async" height="484" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-13.webp" width="864"/></figure>
+<p>The Virtual FlexPendant provides a step-by-step process to power on the robot:</p>
+<ol type="1">
+<li><p>Click on the checkbox.</p></li>
+<li><p>Select the middle position.</p></li>
+<li><p>Push the white button.</p></li>
+<li><p>Click on "Enable" to start the motor.</p></li>
+</ol>
+<figure><img alt="Controlling the Robot with the Virtual FlexPendant – ABB screenshot" decoding="async" height="382" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-14.webp" width="1100"/></figure>
+<p>The top banner indicates that the robot is powered on (Motors On):</p>
+<figure><img alt="Controlling the Robot with the Virtual FlexPendant – ABB screenshot" decoding="async" height="70" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-15.webp" width="642"/></figure>
+<p>Once it's on, you can start performing movements, which will be visible in the 3D view.</p>
+
+<h2 id="editing-rapid-code">Editing RAPID Code</h2>
+<p>To edit the RAPID code, access the "Program Editor" from the top-left menu. From here, you can add instructions to the "main" program.</p>
+<figure><img alt="Editing RAPID Code – ABB screenshot" decoding="async" height="484" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-12.webp" width="864"/></figure>
+<figure><img alt="Editing RAPID Code – ABB screenshot" decoding="async" height="616" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-16.webp" width="1100"/></figure>
+<p>An essential feature of RobotStudio is the ability to take control of the FlexPendant to edit the RAPID code. To achieve this, click on "Request Write Access".</p>
+<figure><img alt="Editing RAPID Code – ABB screenshot" decoding="async" height="381" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-17.webp" width="508"/></figure>
+<p>The FlexPendant must accept the request.</p>
+<figure><img alt="Editing RAPID Code – ABB screenshot" decoding="async" height="244" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-18.webp" width="658"/></figure>
+<figure><img alt="Editing RAPID Code – ABB screenshot" decoding="async" height="616" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-19.webp" width="1100"/></figure>
+<p>Once you make the necessary modifications, apply them using the "Apply" button. When everything is in order, the module is edited, and you can release the access.</p>
+<figure><img alt="Editing RAPID Code – ABB screenshot" decoding="async" height="169" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-20.webp" width="258"/></figure>
+<figure><img alt="Editing RAPID Code – ABB screenshot" decoding="async" height="75" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-21.webp" width="1014"/></figure>
+
+<h2 id="creating-program-backups">Creating Program Backups</h2>
+<p>Creating backups is a crucial step when working with robots. In RobotStudio, it's a simple process. Click on "Backup," then "Create Backup," and a window will guide you through creating the backup.</p>
+<figure><img alt="Creating Program Backups – ABB screenshot" decoding="async" height="340" loading="lazy" src="/blog/abb-robotstudio-getting-started/img-22.webp" width="866"/></figure>
+
+<p>By following these steps, you will be well on your way to mastering RobotStudio and harnessing its capabilities for your robotic applications. Happy programming!</p>
+<div class="cta-band"><div><h2>Learn the full method in ABB Robot Programming</h2>
+<p>Write clean RAPID programs with RobotStudio and the FlexPendant, the way it&#x27;s done in production. Free bonus: the complete IRB 120 robot backup used in the book.</p></div>
+<a class="btn btn-primary" href="/books/abb-robot-programming/">See the book</a></div></article>
+<aside><div class="aside-card"><a class="cover cover-real " href="/books/abb-robot-programming/"><img src="/assets/covers/abb.webp" width="600" height="777" alt="ABB Robot Programming book cover by Guillaume Olivier" loading="lazy"></a><h3>ABB Robot Programming</h3>
+<p>Write clean RAPID programs with RobotStudio and the FlexPendant, the way it&#x27;s done in production.</p>
+<a class="btn btn-primary" href="https://www.amazon.com/dp/B0D8PR9XJB" rel="noopener">View on Amazon</a>
+<p style="margin-top:12px"><a href="/books/abb-robot-programming/">What's inside the book</a></p></div></aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h2>Indus Programming</h2>
+      <p>Practical guides to industrial robot programming by Guillaume Olivier, automation engineer.</p>
+      <p><a href="mailto:indusprogramming@gmail.com">indusprogramming@gmail.com</a></p>
+    </div>
+    <div>
+      <h2>Books</h2>
+      <ul>
+        <li><a href="/books/fanuc-robot-programming/">FANUC Robot Programming</a></li>
+        <li><a href="/books/abb-robot-programming/">ABB Robot Programming</a></li>
+        <li><a href="/bonus/">Get your book bonus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>FANUC</h2>
+      <ul>
+        <li><a href="/blog/fanuc-macro-programming/">Macro programming</a></li>
+        <li><a href="/blog/upload-program-to-fanuc-robot/">Load a program on a new robot</a></li>
+        <li><a href="/blog/fanuc-alarm-codes-troubleshooting/">Alarm codes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>ABB</h2>
+      <ul>
+        <li><a href="/blog/abb-robotstudio-getting-started/">RobotStudio getting started</a></li>
+        <li><a href="/blog/abb-robot-commissioning-checklist/">Commissioning checklist</a></li>
+        <li><a href="/blog/abb-io-list-excel-macro/">I/O list Excel template</a></li>
+      </ul>
+    </div>
+    <p class="small">© 2026 Guillaume Olivier. FANUC, ABB, Roboguide and RobotStudio are trademarks of their respective owners. This site is independent and not affiliated with them.</p>
+  </div>
+</footer>
+</body>
+</html>

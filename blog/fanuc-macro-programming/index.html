@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FANUC Macro Programming: User Keys, Manual Functions and DI Triggers | Indus Programming</title>
+<meta name="description" content="Create FANUC macros to open and close a gripper, then trigger them from teach pendant user keys, manual functions or PLC digital inputs. Examples included.">
+<link rel="canonical" href="https://roboticsbooks.github.io/blog/fanuc-macro-programming/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Indus Programming">
+<meta property="og:title" content="FANUC Macro Programming: User Keys, Manual Functions and DI Triggers">
+<meta property="og:description" content="Create FANUC macros to open and close a gripper, then trigger them from teach pendant user keys, manual functions or PLC digital inputs. Examples included.">
+<meta property="og:url" content="https://roboticsbooks.github.io/blog/fanuc-macro-programming/">
+<meta property="og:image" content="https://roboticsbooks.github.io/blog/fanuc-macro-programming/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "FANUC Macro Programming: User Keys, Manual Functions and DI Triggers", "description": "Create FANUC macros to open and close a gripper, then trigger them from teach pendant user keys, manual functions or PLC digital inputs. Examples included.", "author": {"@type": "Person", "name": "Guillaume Olivier", "url": "https://roboticsbooks.github.io/about/"}, "datePublished": "2023-09-01", "dateModified": "2026-11-20", "image": "https://roboticsbooks.github.io/blog/fanuc-macro-programming/cover.jpg", "mainEntityOfPage": "https://roboticsbooks.github.io/blog/fanuc-macro-programming/", "publisher": {"@type": "Organization", "name": "Indus Programming", "logo": {"@type": "ImageObject", "url": "https://roboticsbooks.github.io/assets/logo-square.png"}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://roboticsbooks.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Tutorials", "item": "https://roboticsbooks.github.io/blog/"}, {"@type": "ListItem", "position": 3, "name": "FANUC Macro Programming: User Keys, Manual Functions and DI Triggers", "item": "https://roboticsbooks.github.io/blog/fanuc-macro-programming/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" width="34" height="34" alt=""><span><b>Indus</b> Programming</span></a>
+    <nav class="nav" aria-label="Main"><a href="/books/">Books</a><a href="/blog/" aria-current="page">Tutorials</a><a href="/tools/">Tools</a><a href="/about/">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="page-head"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Tutorials</a> / FANUC Macro Programming: User Keys, Manual Functions and DI Triggers</nav><h1>FANUC Macro Programming: User Keys, Manual Functions and DI Triggers</h1><p>Create FANUC macros to open and close a gripper, then trigger them from teach pendant user keys, manual functions or PLC digital inputs. Examples included.</p></div></div>
+<div class="wrap article-layout" style="padding-left:20px;padding-right:20px">
+<article class="prose"><figure class="hero-img"><img src="/blog/fanuc-macro-programming/cover.webp" width="1200" height="800" alt="FANUC Macro Programming: User Keys, Manual Functions and DI Triggers" fetchpriority="high"></figure><nav class="toc" aria-label="Contents"><p>In this article</p><ol><li><a href="#what-is-a-macro">What Is a Macro?</a></li><li><a href="#triggers">Triggers</a></li><li><a href="#uk-user-key">UK: User Key</a></li><li><a href="#su-shift-user-key">SU: Shift User Key</a></li><li><a href="#mf-manual-function">MF: Manual Function</a></li><li><a href="#di-digital-input">DI: Digital Input</a></li><li><a href="#creating-a-macro">Creating a Macro</a></li><li><a href="#configuring-triggers">Configuring Triggers</a></li><li><a href="#testing-macros">Testing Macros</a></li></ol></nav>
+
+<p>Programming macros on Fanuc robots may seem difficult initially, but it's actually a powerful tool for automating and streamlining repetitive tasks. In this article, we will delve into what macros are and how to use them effectively.</p>
+
+<h2 id="what-is-a-macro">What Is a Macro?</h2>
+<p>A macro is a small routine that gets executed by a trigger (such as pressing a button on the teach pendant or receiving a command from the PLC). Macros are typically used to control the gripper (open/close the gripper, suction the part, etc.) but can be used for whatever you want. Without macros, manually activating each of the robot outputs can be a time-consuming task, especially during commissioning.</p>
+
+<h2 id="triggers">Triggers</h2>
+<p>We have several types of triggers for executing macros.<br/>
+Here are the main ones:</p>
+<ul>
+<li><p>UK: User Key</p></li>
+<li><p>SU: Shift User Key</p></li>
+<li><p>MF: Manual Function</p></li>
+<li><p>DI: Digital Input</p></li>
+</ul>
+
+<h2 id="uk-user-key">UK: User Key</h2>
+<p>There are 4 user keys available.</p>
+<figure><img alt="Fanuc Macro User Keys" decoding="async" height="428" loading="lazy" src="/blog/fanuc-macro-programming/img-1.webp" width="592"/></figure>
+<h2 id="su-shift-user-key">SU: Shift User Key</h2>
+<p>By pressing shift, you can add 4 additional macros.</p>
+<figure><img alt="Fanuc Macro Shift User Key" decoding="async" height="421" loading="lazy" src="/blog/fanuc-macro-programming/img-2.webp" width="586"/></figure>
+<h2 id="mf-manual-function">MF: Manual Function</h2>
+<p>You can affect macros to Manual Functions to have these macros displayed in "MENU", "MANUAL FCTNS".</p>
+<figure><img alt="Fanuc Macro Manual Function" decoding="async" height="448" loading="lazy" src="/blog/fanuc-macro-programming/img-3.webp" width="843"/></figure>
+<h2 id="di-digital-input">DI: Digital Input</h2>
+<p>Digital input can be used as a trigger to execute a macro.</p>
+<p>For example, you can use the PLC to control the gripper.</p>
+
+<h2 id="creating-a-macro">Creating a Macro</h2>
+<p>As mentioned earlier, a macro is a type of routine.</p>
+<p>Let's start by creating two routines for opening and closing the gripper.</p>
+<p>Important Note: When working with macros, it's advisable to limit instructions to controlling outputs. It's not recommended to use wait instructions (time delays, sensors) as they serve no purpose and may prevent the execution of other macros until the first one completes.</p>
+<p>The first routine is named "CM_GRIP_PART", and I use the prefix "CM" for "Command Macro".</p>
+<p>Define a name, then click on "Detail".</p>
+<figure><img alt="Fanuc Macro Creation" decoding="async" height="556" loading="lazy" src="/blog/fanuc-macro-programming/img-4.webp" width="839"/></figure>
+<p>Select the sub type as "Macro”.</p>
+<figure><img alt="Fanuc Macro Sub type" decoding="async" height="558" loading="lazy" src="/blog/fanuc-macro-programming/img-5.webp" width="839"/></figure>
+<p>Modify the group mask by replacing the 1 with an asterisk.</p>
+<figure><img alt="Fanuc Macro Group Mask" decoding="async" height="559" loading="lazy" src="/blog/fanuc-macro-programming/img-6.webp" width="840"/></figure>
+<p>Now, let's add the code to the macro. </p>
+<figure><img alt="Fanuc Macro Grip Part" decoding="async" height="160" loading="lazy" src="/blog/fanuc-macro-programming/img-7.webp" width="385"/></figure>
+<p>Repeat the same steps for the second routine named "CM_RELEASE_PART".</p>
+<figure><img alt="Fanuc Macro Release Part" decoding="async" height="155" loading="lazy" src="/blog/fanuc-macro-programming/img-8.webp" width="393"/></figure>
+<p>Congratulations, our macros are created. Now, we need to configure triggers.</p>
+
+<h2 id="configuring-triggers">Configuring Triggers</h2>
+<p>Currently, the macros exist, but no triggers are configured. To do this, navigate to "SETUP," then "Macro".</p>
+<figure><img alt="Fanuc Macro Menu" decoding="async" height="575" loading="lazy" src="/blog/fanuc-macro-programming/img-9.webp" width="839"/></figure>
+<p>The definition of triggers involves four elements:</p>
+<ul>
+<li><p>An instruction name</p></li>
+<li><p>A program to be executed</p></li>
+<li><p>A trigger type</p></li>
+<li><p>And the assignment</p></li>
+</ul>
+<p>Typically, in my programs, I use:</p>
+<ul>
+<li><p>2 teach pendant buttons for opening and closing</p></li>
+<li><p>2 digital inputs to allow the PLC to control the gripper</p></li>
+<li><p>2 manual functions to display the commands in the corresponding menu</p></li>
+</ul>
+<p>Here is the configuration:</p><table><thead><tr><th>Instruction name</th><th>Program</th><th>Type</th><th>Assign</th></tr></thead><tbody>
+<tr><td>M_UK_GripPart</td><td>CM_GRIP_PART</td><td>UK</td><td>1</td></tr>
+<tr><td>M_UK_ReleasePart</td><td>CM_RELEASE_PART</td><td>UK</td><td>2</td></tr>
+<tr><td>M_DI_GripPart</td><td>CM_GRIP_PART</td><td>DI</td><td>81</td></tr>
+<tr><td>M_DI_ReleasePart</td><td>CM_RELEASE_PART</td><td>DI</td><td>82</td></tr>
+<tr><td>M_MF_GripPart</td><td>CM_GRIP_PART</td><td>MF</td><td>1</td></tr>
+<tr><td>M_MF_ReleasePart</td><td>CM_RELEASE_PART</td><td>MF</td><td>2</td></tr></tbody></table>
+<figure><img alt="Fanuc Macro Configuration" decoding="async" height="365" loading="lazy" src="/blog/fanuc-macro-programming/img-10.webp" width="840"/></figure>
+
+<h2 id="testing-macros">Testing Macros</h2>
+<p>Now that everything is configured, it's time to validate that it works.</p>
+<p>Display the robot outputs view and then press the user keys on the teach pendant or play with manual functions.</p>
+<div class="cta-band"><div><h2>Learn the full method in FANUC Robot Programming</h2>
+<p>Write reliable FANUC TP programs, built and tested step by step in Roboguide. Free bonus: the complete robot and Roboguide cell backup, plus the Excel I/O mapping file.</p></div>
+<a class="btn btn-primary" href="/books/fanuc-robot-programming/">See the book</a></div></article>
+<aside><div class="aside-card"><a class="cover cover-real " href="/books/fanuc-robot-programming/"><img src="/assets/covers/fanuc.webp" width="600" height="776" alt="FANUC Robot Programming book cover by Guillaume Olivier" loading="lazy"></a><h3>FANUC Robot Programming</h3>
+<p>Write reliable FANUC TP programs, built and tested step by step in Roboguide.</p>
+<a class="btn btn-primary" href="https://www.amazon.com/dp/B0FKZYSZHL" rel="noopener">View on Amazon</a>
+<p style="margin-top:12px"><a href="/books/fanuc-robot-programming/">What's inside the book</a></p></div></aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h2>Indus Programming</h2>
+      <p>Practical guides to industrial robot programming by Guillaume Olivier, automation engineer.</p>
+      <p><a href="mailto:indusprogramming@gmail.com">indusprogramming@gmail.com</a></p>
+    </div>
+    <div>
+      <h2>Books</h2>
+      <ul>
+        <li><a href="/books/fanuc-robot-programming/">FANUC Robot Programming</a></li>
+        <li><a href="/books/abb-robot-programming/">ABB Robot Programming</a></li>
+        <li><a href="/bonus/">Get your book bonus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>FANUC</h2>
+      <ul>
+        <li><a href="/blog/fanuc-macro-programming/">Macro programming</a></li>
+        <li><a href="/blog/upload-program-to-fanuc-robot/">Load a program on a new robot</a></li>
+        <li><a href="/blog/fanuc-alarm-codes-troubleshooting/">Alarm codes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>ABB</h2>
+      <ul>
+        <li><a href="/blog/abb-robotstudio-getting-started/">RobotStudio getting started</a></li>
+        <li><a href="/blog/abb-robot-commissioning-checklist/">Commissioning checklist</a></li>
+        <li><a href="/blog/abb-io-list-excel-macro/">I/O list Excel template</a></li>
+      </ul>
+    </div>
+    <p class="small">© 2026 Guillaume Olivier. FANUC, ABB, Roboguide and RobotStudio are trademarks of their respective owners. This site is independent and not affiliated with them.</p>
+  </div>
+</footer>
+</body>
+</html>

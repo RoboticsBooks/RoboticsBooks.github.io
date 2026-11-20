@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ABB Robot Commissioning: Step-by-Step Checklist for a New Robot | Indus Programming</title>
+<meta name="description" content="The commissioning steps for a brand-new ABB robot: initial backup, calibration check, I/O, tool data, LoadIdentify, frames, World Zones and cycle-time optimization.">
+<link rel="canonical" href="https://roboticsbooks.github.io/blog/abb-robot-commissioning-checklist/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Indus Programming">
+<meta property="og:title" content="ABB Robot Commissioning: Step-by-Step Checklist for a New Robot">
+<meta property="og:description" content="The commissioning steps for a brand-new ABB robot: initial backup, calibration check, I/O, tool data, LoadIdentify, frames, World Zones and cycle-time optimization.">
+<meta property="og:url" content="https://roboticsbooks.github.io/blog/abb-robot-commissioning-checklist/">
+<meta property="og:image" content="https://roboticsbooks.github.io/blog/abb-robot-commissioning-checklist/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ABB Robot Commissioning: Step-by-Step Checklist for a New Robot", "description": "The commissioning steps for a brand-new ABB robot: initial backup, calibration check, I/O, tool data, LoadIdentify, frames, World Zones and cycle-time optimization.", "author": {"@type": "Person", "name": "Guillaume Olivier", "url": "https://roboticsbooks.github.io/about/"}, "datePublished": "2023-09-01", "dateModified": "2026-11-20", "image": "https://roboticsbooks.github.io/blog/abb-robot-commissioning-checklist/cover.jpg", "mainEntityOfPage": "https://roboticsbooks.github.io/blog/abb-robot-commissioning-checklist/", "publisher": {"@type": "Organization", "name": "Indus Programming", "logo": {"@type": "ImageObject", "url": "https://roboticsbooks.github.io/assets/logo-square.png"}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://roboticsbooks.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Tutorials", "item": "https://roboticsbooks.github.io/blog/"}, {"@type": "ListItem", "position": 3, "name": "ABB Robot Commissioning: Step-by-Step Checklist for a New Robot", "item": "https://roboticsbooks.github.io/blog/abb-robot-commissioning-checklist/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" width="34" height="34" alt=""><span><b>Indus</b> Programming</span></a>
+    <nav class="nav" aria-label="Main"><a href="/books/">Books</a><a href="/blog/" aria-current="page">Tutorials</a><a href="/tools/">Tools</a><a href="/about/">About</a></nav>
+  </div>
+</header>
+<main id="main">
+<div class="page-head"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Tutorials</a> / ABB Robot Commissioning: Step-by-Step Checklist for a New Robot</nav><h1>ABB Robot Commissioning: Step-by-Step Checklist for a New Robot</h1><p>The commissioning steps for a brand-new ABB robot: initial backup, calibration check, I/O, tool data, LoadIdentify, frames, World Zones and cycle-time optimization.</p></div></div>
+<div class="wrap article-layout" style="padding-left:20px;padding-right:20px">
+<article class="prose"><figure class="hero-img"><img src="/blog/abb-robot-commissioning-checklist/cover.webp" width="1200" height="800" alt="ABB Robot Commissioning: Step-by-Step Checklist for a New Robot" fetchpriority="high"></figure><nav class="toc" aria-label="Contents"><p>In this article</p><ol><li><a href="#initial-backup">Initial Backup</a></li><li><a href="#checking-the-0-mark-on-each-joint">Checking the 0 Mark on Each Joint</a></li><li><a href="#loading-the-program">Loading the Program</a></li><li><a href="#inputs-outputs">Inputs &amp; Outputs</a></li><li><a href="#defining-tool-data">Defining Tool Data</a></li><li><a href="#teaching-frames">Teaching Frames</a></li><li><a href="#teaching-positions">Teaching Positions</a></li><li><a href="#adjusting-trajectories">Adjusting Trajectories</a></li><li><a href="#worldzones">Worldzones</a></li><li><a href="#auto-mode-at-low-speed">Auto Mode at Low Speed</a></li><li><a href="#optimization">Optimization</a></li><li><a href="#final-backup">Final Backup</a></li></ol></nav><p>This blog post aims to provide you with a step-by-step tutorial to follow when commissioning a brand new robot.</p>
+
+<h2 id="initial-backup">Initial Backup</h2>
+<p>The first step is to create a backup of the initial state. To do so, you can use RobotStudio or the Teach Pendant.</p>
+<p>On RobotStudio, connect to the robot then select "Create Backup" from the Controller tab.</p>
+<p>On the Teach Pendant, open the menu then select "Backup and Restore". You can save the backup onto a usb key.</p>
+<p>This will save a backup that can later be used for restoring your robot to its original state if you mess with something.</p>
+
+<h2 id="checking-the-0-mark-on-each-joint">Checking the 0 Mark on Each Joint</h2>
+<p>Ensuring proper calibration of the axes is an important step. It would be unfortunate to invest effort in other aspects only to discover later that the calibration is incorrect.</p>
+<ul>
+<li><p>Jog each axis to approximately 0 degree.</p></li>
+</ul>
+<figure><img alt="RobotStudio Jogging Screen" decoding="async" height="482" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-1.webp" width="643"/></figure>
+<ul>
+<li><p>Check the zero marks on the robot.</p></li>
+</ul>
+<p>If an axis position deviates significantly from the zero mark, calibration becomes necessary. Fortunately, this process is relatively simple. </p>
+<ul>
+<li><p>Jog each axis to their zero mark.</p></li>
+</ul>
+<ul>
+<li><p>Open the menu. Select "Calibration".</p></li>
+</ul>
+<figure><img alt="Teach pendant menu" decoding="async" height="481" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-2.webp" width="642"/></figure>
+<ul>
+<li><p>Click on "ROB_1".</p></li>
+</ul>
+<figure><img alt="Robot Calibrated" decoding="async" height="482" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-3.webp" width="642"/></figure>
+<ul>
+<li><p>Click on "Manual Method (Advanced)".</p></li>
+</ul>
+<figure><img alt="ABB Robot manual calibration" decoding="async" height="479" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-4.webp" width="641"/></figure>
+<ul>
+<li><p>On "Rev. Counters" tab, click on "Update Revolution Counters...".</p></li>
+</ul>
+<figure><img alt="Update Revolution Counters" decoding="async" height="480" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-5.webp" width="643"/></figure>
+<ul>
+<li><p>Next, proceed to update the revolution counters for all axes or solely for the one that was not within the desired range.</p></li>
+</ul>
+<figure><img alt="Update Revolution Counters" decoding="async" height="482" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-6.webp" width="643"/></figure>
+<h2 id="loading-the-program">Loading the Program</h2>
+<p>Follow this blog post to load the program: <a href="/blog/upload-program-to-abb-robot/">ABB Robot Commissioning: Uploading a Program to the Robot with RobotStudio</a>.</p>
+
+<h2 id="inputs-outputs">Inputs &amp; Outputs</h2>
+<p>Once the program is loaded, configuring and checking inputs and outputs is necessary.</p>
+<ul>
+<li><p>Set up the local IO device.</p></li>
+<li><p>Adjust fieldbus settings for IO communication with the PLC.</p></li>
+<li><p>Perform tests on local IO and remote IO to check that everything is mapped properly. </p></li>
+</ul>
+
+<h2 id="defining-tool-data">Defining Tool Data</h2>
+<p>If you have already defined tool data (geometry, mass, center of gravity) in your program, you can skip this step.</p>
+<p>Otherwise, it's time to do it.</p>
+<p>If all these information are already known, input the relevant values into the tooldata. </p>
+<p>If you don’t know the Tool Center Point (TCP), you can follow a procedure on the Teach Pendant to teach it.</p>
+<ul>
+<li><p>Open the menu. Select "Program Data".</p></li>
+</ul>
+<figure><img alt="Teach pendant menu" decoding="async" height="481" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-2.webp" width="642"/></figure>
+<ul>
+<li><p>Select "tooldata".</p></li>
+</ul>
+<figure><img alt="Tooldata" decoding="async" height="484" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-7.webp" width="643"/></figure>
+<ul>
+<li><p>Select the tool, then "Edit" and "Define".</p></li>
+</ul>
+<figure><img alt="Edit tooldata" decoding="async" height="480" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-8.webp" width="643"/></figure>
+<ul>
+<li><p> Choose a method, then teach the tool frame. Look at the manuals for more information about teaching methods.</p></li>
+</ul>
+<figure><img alt="Tool frame definition" decoding="async" height="480" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-9.webp" width="642"/></figure>
+<p>If the mass or center of gravity is unknown, particularly when dealing with a heavy tool, you have the option to utilize the automated load identification feature.</p>
+<p>To start this procedure:</p>
+<ul>
+<li><p>Open the menu. Select "Program Editor".</p></li>
+<li><p>Click on "Debug", then "Call Routine..".</p></li>
+</ul>
+<figure><img alt="Call routine" decoding="async" height="484" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-10.webp" width="643"/></figure>
+<ul>
+<li><p>Choose "LoadIdentify".</p></li>
+</ul>
+<figure><img alt="Automatic load identify" decoding="async" height="481" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-11.webp" width="645"/></figure>
+<ul>
+<li><p>Start this routine and follow the instructions.</p></li>
+</ul>
+<figure><img alt="LoadIdentify" decoding="async" height="481" loading="lazy" src="/blog/abb-robot-commissioning-checklist/img-12.webp" width="640"/></figure>
+
+<h2 id="teaching-frames">Teaching Frames</h2>
+<p>It’s time to define the work objects of your application.</p>
+<p>Install the reference tool on the robot’s wrist, then teach each frame using the 3-points method to define Origin, X-axis and Y-axis point  </p>
+<p>Lastly, jog the robot with this frame selected to check that the robot moves according to the frame.  </p>
+
+<h2 id="teaching-positions">Teaching Positions</h2>
+<p>First, teach general positions of your application (home, maintenance, etc.).<br/>
+Then teach every position specific to your application (pick-up, drop-off, etc.).</p>
+
+<h2 id="adjusting-trajectories">Adjusting Trajectories</h2>
+<p>While in manual mode, navigate the Program Pointer through each motion routine. Utilize the step-by-step button to carefully examine the trajectories. If needed, make adjustments to waypoints or offsets.</p>
+
+<h2 id="worldzones">Worldzones</h2>
+<p>If this option is installed in the robot, you need to define and check the worldzones.</p>
+<p>Verify that the output values are adjusted to match the robot's position in relation to the defined zones.</p>
+
+<h2 id="auto-mode-at-low-speed">Auto Mode at Low Speed</h2>
+<p>Set a very low speed and initiate program execution in automatic mode using the PLC.  Keep the Teach Pendant close to you to halt the robot or modify the speed as needed. </p>
+
+<h2 id="optimization">Optimization</h2>
+<p>To improve cycle time, you can adjust trajectories, speed and smoothing.</p>
+<p>To simplify you can:</p>
+<ul>
+<li><p>Reduce offset values when entering or exiting the part.</p></li>
+<li><p>Change speed.</p></li>
+<li><p>Adjust zone data.</p></li>
+<li><p>Use MoveJ instead of MoveL whenever feasible.</p></li>
+<li><p>Improve the handshakes with the PLC to avoid downtime.</p></li>
+</ul>
+<h2 id="final-backup">Final Backup</h2>
+<p>Once everything is set up, you can make a final backup.</p>
+<div class="cta-band"><div><h2>Learn the full method in ABB Robot Programming</h2>
+<p>Write clean RAPID programs with RobotStudio and the FlexPendant, the way it&#x27;s done in production. Free bonus: the complete IRB 120 robot backup used in the book.</p></div>
+<a class="btn btn-primary" href="/books/abb-robot-programming/">See the book</a></div></article>
+<aside><div class="aside-card"><a class="cover cover-real " href="/books/abb-robot-programming/"><img src="/assets/covers/abb.webp" width="600" height="777" alt="ABB Robot Programming book cover by Guillaume Olivier" loading="lazy"></a><h3>ABB Robot Programming</h3>
+<p>Write clean RAPID programs with RobotStudio and the FlexPendant, the way it&#x27;s done in production.</p>
+<a class="btn btn-primary" href="https://www.amazon.com/dp/B0D8PR9XJB" rel="noopener">View on Amazon</a>
+<p style="margin-top:12px"><a href="/books/abb-robot-programming/">What's inside the book</a></p></div></aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h2>Indus Programming</h2>
+      <p>Practical guides to industrial robot programming by Guillaume Olivier, automation engineer.</p>
+      <p><a href="mailto:indusprogramming@gmail.com">indusprogramming@gmail.com</a></p>
+    </div>
+    <div>
+      <h2>Books</h2>
+      <ul>
+        <li><a href="/books/fanuc-robot-programming/">FANUC Robot Programming</a></li>
+        <li><a href="/books/abb-robot-programming/">ABB Robot Programming</a></li>
+        <li><a href="/bonus/">Get your book bonus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>FANUC</h2>
+      <ul>
+        <li><a href="/blog/fanuc-macro-programming/">Macro programming</a></li>
+        <li><a href="/blog/upload-program-to-fanuc-robot/">Load a program on a new robot</a></li>
+        <li><a href="/blog/fanuc-alarm-codes-troubleshooting/">Alarm codes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>ABB</h2>
+      <ul>
+        <li><a href="/blog/abb-robotstudio-getting-started/">RobotStudio getting started</a></li>
+        <li><a href="/blog/abb-robot-commissioning-checklist/">Commissioning checklist</a></li>
+        <li><a href="/blog/abb-io-list-excel-macro/">I/O list Excel template</a></li>
+      </ul>
+    </div>
+    <p class="small">© 2026 Guillaume Olivier. FANUC, ABB, Roboguide and RobotStudio are trademarks of their respective owners. This site is independent and not affiliated with them.</p>
+  </div>
+</footer>
+</body>
+</html>

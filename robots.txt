@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roboticsbooks.github.io/sitemap.xml
